@@ -150,9 +150,10 @@ public class MainActivity extends ImmerseActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
-        tabEntityList.add(new TabEntity("首页",R.mipmap.tab_icon_tj_s,R.mipmap.tab_icon_tj_us));
-        tabEntityList.add(new TabEntity("游戏",R.mipmap.tab_icon_game_s,R.mipmap.tab_icon_game_us));
-        tabEntityList.add(new TabEntity("资讯",R.mipmap.zixun_s,R.mipmap.zixun_us));
+        tabEntityList.add(new TabEntity("游戏",R.mipmap.tab_icon_tj_s,R.mipmap.tab_icon_tj_us));
+//        tabEntityList.add(new TabEntity("游戏",R.mipmap.tab_icon_game_s,R.mipmap.tab_icon_game_us));
+//        tabEntityList.add(new TabEntity("资讯",R.mipmap.zixun_s,R.mipmap.zixun_us));
+        tabEntityList.add(new TabEntity("H5游戏",R.mipmap.zixun_s,R.mipmap.zixun_us));
         tabEntityList.add(new TabEntity("我的",R.mipmap.tab_icon_my_s,R.mipmap.tab_icon_my_us));
         mainTab.setTabSpaceEqual(true);
         mainTab.setTabData(tabEntityList);

@@ -64,6 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/tj_main_tab_margin"
+        android:visibility="gone"
         android:layout_marginTop="@dimen/tj_main_tab_margin"
         app:columnCount="5">
         <LinearLayout

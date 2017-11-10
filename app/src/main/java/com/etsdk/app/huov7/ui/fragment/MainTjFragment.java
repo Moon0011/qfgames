@@ -16,7 +16,6 @@ import com.etsdk.app.huov7.model.GameBean;
 import com.etsdk.app.huov7.model.GamelikeBean;
 import com.etsdk.app.huov7.model.HomePage1Data;
 import com.etsdk.app.huov7.model.MessageEvent;
-import com.etsdk.app.huov7.model.SplitLine;
 import com.etsdk.app.huov7.model.TjAdText;
 import com.etsdk.app.huov7.model.TjAdTop;
 import com.etsdk.app.huov7.model.TjColumnHead;
@@ -69,7 +68,6 @@ public class MainTjFragment extends AutoLazyFragment implements AdvRefreshListen
     private MultiTypeAdapter multiTypeAdapter;
     private BaseRefreshLayout baseRefreshLayout;
     Items items = new Items();
-
 
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {
@@ -261,12 +259,12 @@ public class MainTjFragment extends AutoLazyFragment implements AdvRefreshListen
             isReuqestLine = true;
         }
         //横幅广告
-        if (homePage1Data.getHomenewgame() != null && homePage1Data.getHomenewgame().getList() != null
-                && homePage1Data.getHomenewgame().getList().size() > 0) {
-            allItems.add(homePage1Data.getHomenewgame().getList().get(0));
-            isReuqestLine = true;
-            allItems.add(new SplitLine());
-        }
+//        if (homePage1Data.getHomenewgame() != null && homePage1Data.getHomenewgame().getList() != null
+//                && homePage1Data.getHomenewgame().getList().size() > 0) {
+//            allItems.add(homePage1Data.getHomenewgame().getList().get(0));
+//            isReuqestLine = true;
+//            allItems.add(new SplitLine());
+//        }
         //手游风向标头(热门游戏)
         isReuqestLine = false;
         tjColumnHead = new TjColumnHead(TjColumnHead.TYPE_GAME_FXB);
@@ -287,38 +285,38 @@ public class MainTjFragment extends AutoLazyFragment implements AdvRefreshListen
             isReuqestLine = true;
         }
         //横幅广告
-        if (homePage1Data.getHomehotgame() != null && homePage1Data.getHomehotgame().getList() != null
-                && homePage1Data.getHomehotgame().getList().size() > 0) {
-            allItems.add(homePage1Data.getHomehotgame().getList().get(0));
-            isReuqestLine = true;
-            allItems.add(new SplitLine());
-        }
+//        if (homePage1Data.getHomehotgame() != null && homePage1Data.getHomehotgame().getList() != null
+//                && homePage1Data.getHomehotgame().getList().size() > 0) {
+//            allItems.add(homePage1Data.getHomehotgame().getList().get(0));
+//            isReuqestLine = true;
+//            allItems.add(new SplitLine());
+//        }
         //公益游戏头
         isReuqestLine = false;
         tjColumnHead = new TjColumnHead(TjColumnHead.TYPE_GAME_WELFARE);
-        allItems.add(tjColumnHead);
+//        allItems.add(tjColumnHead);
         //公益游戏
-        if (homePage1Data.getWelfaregame() != null && homePage1Data.getWelfaregame() != null
-                && homePage1Data.getWelfaregame().getList() != null
-                && homePage1Data.getWelfaregame().getList().size() > 0) {
-            List<GameBean> gameBeanList = homePage1Data.getWelfaregame().getList();
-            int i = 0;
-            for (GameBean gameBean : gameBeanList) {
-                i++;
-                if(i>3){
-                    break;
-                }
-                allItems.add(gameBean);
-            }
-            isReuqestLine = true;
-        }
+//        if (homePage1Data.getWelfaregame() != null && homePage1Data.getWelfaregame() != null
+//                && homePage1Data.getWelfaregame().getList() != null
+//                && homePage1Data.getWelfaregame().getList().size() > 0) {
+//            List<GameBean> gameBeanList = homePage1Data.getWelfaregame().getList();
+//            int i = 0;
+//            for (GameBean gameBean : gameBeanList) {
+//                i++;
+//                if(i>3){
+//                    break;
+//                }
+//                allItems.add(gameBean);
+//            }
+//            isReuqestLine = true;
+//        }
         //横幅广告
-        if (homePage1Data.getWelfareslide() != null && homePage1Data.getWelfareslide().getList() != null
-                && homePage1Data.getWelfareslide().getList().size() > 0) {
-            allItems.add(homePage1Data.getWelfareslide().getList().get(0));
-            isReuqestLine = true;
-            allItems.add(new SplitLine());
-        }
+//        if (homePage1Data.getWelfareslide() != null && homePage1Data.getWelfareslide().getList() != null
+//                && homePage1Data.getWelfareslide().getList().size() > 0) {
+//            allItems.add(homePage1Data.getWelfareslide().getList().get(0));
+//            isReuqestLine = true;
+//            allItems.add(new SplitLine());
+//        }
         //分割
 //        if (isReuqestLine) {
 //            allItems.add(new SplitLine());
@@ -327,23 +325,23 @@ public class MainTjFragment extends AutoLazyFragment implements AdvRefreshListen
 //        }
 
         //猜你喜欢
-        if (homePage1Data.getLikegame() != null && homePage1Data.getLikegame() != null
-                && homePage1Data.getLikegame().getList() != null
-                && homePage1Data.getLikegame().getList().size() > 0) {
-            tjColumnHead = new TjColumnHead(TjColumnHead.TYPE_GAME_LIKE);
-            allItems.add(tjColumnHead);
-            int size = homePage1Data.getLikegame().getList().size();//最多取4个
-            int maxSize=size ;
-            if(size < 5){
-                maxSize = size;
-            }else{
-                maxSize = 5;
-            }
-            List<GameBean> gameBeanList = homePage1Data.getLikegame().getList().subList(0,maxSize);
-            GamelikeBean gamelikeBean = new GamelikeBean();
-            gamelikeBean.setGameBeanList(gameBeanList);
-            allItems.add(gamelikeBean);
-        }
+//        if (homePage1Data.getLikegame() != null && homePage1Data.getLikegame() != null
+//                && homePage1Data.getLikegame().getList() != null
+//                && homePage1Data.getLikegame().getList().size() > 0) {
+//            tjColumnHead = new TjColumnHead(TjColumnHead.TYPE_GAME_LIKE);
+//            allItems.add(tjColumnHead);
+//            int size = homePage1Data.getLikegame().getList().size();//最多取4个
+//            int maxSize=size ;
+//            if(size < 5){
+//                maxSize = size;
+//            }else{
+//                maxSize = 5;
+//            }
+//            List<GameBean> gameBeanList = homePage1Data.getLikegame().getList().subList(0,maxSize);
+//            GamelikeBean gamelikeBean = new GamelikeBean();
+//            gamelikeBean.setGameBeanList(gameBeanList);
+//            allItems.add(gamelikeBean);
+//        }
         items.clear();
         baseRefreshLayout.resultLoadData(items, allItems, 1);
     }

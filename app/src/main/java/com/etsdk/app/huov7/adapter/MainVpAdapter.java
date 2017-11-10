@@ -4,11 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.etsdk.app.huov7.ui.fragment.MainFuliFragment;
-import com.etsdk.app.huov7.ui.fragment.MainGameFragment;
-import com.etsdk.app.huov7.ui.fragment.MainMineFragment;
+import com.etsdk.app.huov7.ui.fragment.H5GameFragment;
 import com.etsdk.app.huov7.ui.fragment.MainMineFragmentNew;
-import com.etsdk.app.huov7.ui.fragment.MainNewsFragment;
 import com.etsdk.app.huov7.ui.fragment.MainTjFragment;
 
 import java.util.ArrayList;
@@ -23,8 +20,9 @@ public class MainVpAdapter extends FragmentPagerAdapter {
     public MainVpAdapter(FragmentManager fm) {
         super(fm);
         fragmentList.add(new MainTjFragment());
-        fragmentList.add(new MainGameFragment());
-        fragmentList.add(new MainNewsFragment());
+//        fragmentList.add(new MainGameFragment());
+//        fragmentList.add(new MainNewsFragment());
+        fragmentList.add(new H5GameFragment());
         fragmentList.add(new MainMineFragmentNew());
     }
 
