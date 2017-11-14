@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="13dp"
     android:layout_marginTop="21dp"
     android:gravity="center"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -28,19 +31,37 @@
             android:textColor="#232323"
             android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/btn_player01"
+        <RelativeLayout
             android:layout_width="52dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="6dp"
-            android:background="#72c23f"
-            android:text="下载" />
+            android:layout_height="25dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/pb_down1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/down_rect_pb_style" />
+
+            <TextView
+                android:id="@+id/tv_down_status1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="查看"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_content" />
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="23dp"
+        android:layout_marginLeft="18dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -59,19 +80,38 @@
             android:textColor="#232323"
             android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/btn_player02"
+        <RelativeLayout
             android:layout_width="52dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="6dp"
-            android:background="#72c23f"
-            android:text="下载" />
+            android:layout_height="25dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/pb_down2"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/down_rect_pb_style" />
+
+            <TextView
+                android:id="@+id/tv_down_status2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="查看"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_content" />
+        </RelativeLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="23dp"
+        android:layout_marginLeft="18dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -90,19 +130,37 @@
             android:textColor="#232323"
             android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/btn_player03"
+        <RelativeLayout
             android:layout_width="52dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="6dp"
-            android:background="#72c23f"
-            android:text="下载" />
+            android:layout_height="25dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/pb_down3"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/down_rect_pb_style" />
+
+            <TextView
+                android:id="@+id/tv_down_status3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="查看"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_content" />
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="23dp"
+        android:layout_marginLeft="18dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -121,12 +179,30 @@
             android:textColor="#232323"
             android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/btn_player04"
+        <RelativeLayout
             android:layout_width="52dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="6dp"
-            android:background="#72c23f"
-            android:text="下载" />
+            android:layout_height="25dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/pb_down4"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/down_rect_pb_style" />
+
+            <TextView
+                android:id="@+id/tv_down_status4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="查看"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_content" />
+        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

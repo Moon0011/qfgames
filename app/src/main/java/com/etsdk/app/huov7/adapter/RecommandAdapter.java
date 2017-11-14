@@ -195,7 +195,6 @@ public class RecommandAdapter extends RecyclerView.Adapter implements IDataAdapt
         }
     }
 
-
     @Override
     public int getItemViewType(int position) {
         if (position < moduleTopSize) {
@@ -296,7 +295,6 @@ public class RecommandAdapter extends RecyclerView.Adapter implements IDataAdapt
             ButterKnife.bind(this, view);
         }
     }
-
 
     static class LikeGameHeadViewHolder extends RecyclerView.ViewHolder {
         LikeGameHeadViewHolder(View view) {

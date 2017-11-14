@@ -256,7 +256,6 @@ public class NewListGameItem extends BaseDownView {
     public void paused(TasksManagerModel tasksManagerModel, int soFarBytes, int totalBytes) {
 //        L.e(TAG, tasksManagerModel.getGameName()+" paused");
         tvDownStatus.setText(TasksManager.getImpl().getStatusText(gameBean.getGameid()));
-
         pbDown.setProgress(TasksManager.getImpl().getProgress(tasksManagerModel.getId()));
     }
 
@@ -279,7 +278,6 @@ public class NewListGameItem extends BaseDownView {
 
                 @Override
                 public void cancel() {
-
                 }
             });
             return;
@@ -369,7 +367,6 @@ public class NewListGameItem extends BaseDownView {
 
     @Override
     public void netRecover() {
-
     }
 
     @Override

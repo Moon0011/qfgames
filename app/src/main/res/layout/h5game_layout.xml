@@ -33,7 +33,7 @@
     <com.etsdk.app.huov7.view.SlideShowView
         android:id="@+id/slideshowview"
         android:layout_width="match_parent"
-        android:layout_height="165dp" />
+        android:layout_height="150dp" />
 
     <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
         android:id="@+id/recyclerView"

@@ -110,7 +110,7 @@
 
             <View
                 style="@style/line_color"/>
-            
+
             <LinearLayout
                 android:id="@+id/ll_show_platform_money"
                 android:layout_width="match_parent"

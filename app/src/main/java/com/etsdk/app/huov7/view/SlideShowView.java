@@ -47,7 +47,7 @@ public class SlideShowView extends FrameLayout {
             "http://pic2.ooopic.com/10/65/14/50b1OOOPIC9a.jpg",
             "http://pic2.ooopic.com/10/65/14/50b1OOOPIC9a.jpg"};
 
-    private int[] imgId = new int[]{R.mipmap.ad_center01, R.mipmap.ad_center02, R.mipmap.ad_center03, R.mipmap.ad_center04, R.mipmap.ad_center05};
+    private int[] imgId = new int[]{R.mipmap.h5_ad01, R.mipmap.h5_ad02 };
 
     private List<ImageView> imageViewsList;
 

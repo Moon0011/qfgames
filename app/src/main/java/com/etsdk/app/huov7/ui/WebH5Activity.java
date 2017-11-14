@@ -7,9 +7,11 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.etsdk.app.huov7.R;
 import com.etsdk.app.huov7.base.ImmerseActivity;
+import com.ta.utdid2.android.utils.StringUtils;
 
 
 /**
@@ -25,6 +27,12 @@ public class WebH5Activity extends ImmerseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.web_h5game_layout);
+        String webUrl = getIntent().getExtras().getString("url");
+        if (StringUtils.isEmpty(webUrl)) {
+            Toast.makeText(this, "链接地址错误", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
         webview = (WebView) findViewById(R.id.webview);
         imgBack = (ImageView) findViewById(R.id.img_back);
         imgBack.setOnClickListener(new View.OnClickListener() {
@@ -41,8 +49,7 @@ public class WebH5Activity extends ImmerseActivity {
         //设置支持缩放
         webSettings.setBuiltInZoomControls(true);
         //加载需要显示的网页
-//        webview.loadUrl("http://play.11h5.com/game/?gameid=200&code=c-a11e8a41410ad1099a7d997164f55467");
-        webview.loadUrl("http://h5.520cai.com/media.php?s=/Game/open_game/game_id/8.html");
+        webview.loadUrl(webUrl);
         //设置Web视图
         webview.setWebViewClient(new webViewClient());
     }

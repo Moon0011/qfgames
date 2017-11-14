@@ -1,17 +1,21 @@
 package com.etsdk.app.huov7.provider;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.etsdk.app.huov7.R;
+import com.etsdk.app.huov7.model.GameBean;
 import com.etsdk.app.huov7.model.TjMustPlay;
+import com.etsdk.app.huov7.ui.GameDetailV2Activity;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,8 +26,9 @@ import me.drakeet.multitype.ItemViewProvider;
  */
 public class TjMustPlayViewProvider
         extends ItemViewProvider<TjMustPlay, TjMustPlayViewProvider.ViewHolder> {
-
-    public TjMustPlayViewProvider() {
+    private Context mContext;
+    public TjMustPlayViewProvider(Context context) {
+        this.mContext = context;
     }
 
     @NonNull
@@ -35,57 +40,64 @@ public class TjMustPlayViewProvider
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull final ViewHolder holder, @NonNull TjMustPlay tjMustPlay) {
-        String[] playNames = tjMustPlay.getPlayNames();
-        int[] playImgs = tjMustPlay.getPlayImgs();
-        holder.imgPlay01.setImageResource(playImgs[0]);
-        holder.imgPlay02.setImageResource(playImgs[1]);
-        holder.imgPlay03.setImageResource(playImgs[2]);
-        holder.imgPlay04.setImageResource(playImgs[3]);
+    protected void onBindViewHolder(@NonNull final ViewHolder holder, @NonNull final TjMustPlay tjMustPlay) {
+        final List<GameBean> gameBeanList = tjMustPlay.getGameBeans();
+        Glide.with(mContext)
+                .load(gameBeanList.get(0).getIcon())
+                .placeholder(R.mipmap.error_pic)
+                .crossFade()
+                .into(holder.imgPlay01);
+        Glide.with(mContext)
+                .load(gameBeanList.get(1).getIcon())
+                .placeholder(R.mipmap.error_pic)
+                .crossFade()
+                .into(holder.imgPlay02);
+        Glide.with(mContext)
+                .load(gameBeanList.get(2).getIcon())
+                .placeholder(R.mipmap.error_pic)
+                .crossFade()
+                .into(holder.imgPlay03);
+        Glide.with(mContext)
+                .load(gameBeanList.get(3).getIcon())
+                .placeholder(R.mipmap.error_pic)
+                .crossFade()
+                .into(holder.imgPlay04);
 
-        holder.tvPlayer01.setText(playNames[0]);
-        holder.tvPlayer02.setText(playNames[1]);
-        holder.tvPlayer03.setText(playNames[2]);
-        holder.tvPlayer04.setText(playNames[3]);
+        holder.tvPlayer01.setText(gameBeanList.get(0).getGamename());
+        holder.tvPlayer02.setText(gameBeanList.get(1).getGamename());
+        holder.tvPlayer03.setText(gameBeanList.get(2).getGamename());
+        holder.tvPlayer04.setText(gameBeanList.get(3).getGamename());
 
-        holder.player01.setOnClickListener(new View.OnClickListener() {
+        holder.tvStatus01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("qfgames", "xiazai1");
+                GameDetailV2Activity.start(mContext, gameBeanList.get(0).getGameid());
             }
         });
 
-        holder.player02.setOnClickListener(new View.OnClickListener() {
+        holder.tvStatus02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("qfgames", "xiazai2");
+                GameDetailV2Activity.start(mContext, gameBeanList.get(1).getGameid());
             }
         });
 
-        holder.player03.setOnClickListener(new View.OnClickListener() {
+        holder.tvStatus03.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("qfgames", "xiazai3");
+                GameDetailV2Activity.start(mContext, gameBeanList.get(2).getGameid());
             }
         });
 
-        holder.player04.setOnClickListener(new View.OnClickListener() {
+        holder.tvStatus04.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("qfgames", "xiazai4");
+                GameDetailV2Activity.start(mContext, gameBeanList.get(3).getGameid());
             }
         });
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.btn_player01)
-        Button player01;
-        @BindView(R.id.btn_player02)
-        Button player02;
-        @BindView(R.id.btn_player03)
-        Button player03;
-        @BindView(R.id.btn_player04)
-        Button player04;
         @BindView(R.id.img_play01)
         ImageView imgPlay01;
         @BindView(R.id.img_play02)
@@ -102,6 +114,14 @@ public class TjMustPlayViewProvider
         TextView tvPlayer03;
         @BindView(R.id.tv_play04)
         TextView tvPlayer04;
+        @BindView(R.id.tv_down_status1)
+        TextView tvStatus01;
+        @BindView(R.id.tv_down_status2)
+        TextView tvStatus02;
+        @BindView(R.id.tv_down_status3)
+        TextView tvStatus03;
+        @BindView(R.id.tv_down_status4)
+        TextView tvStatus04;
 
         ViewHolder(View itemView) {
             super(itemView);

@@ -69,7 +69,7 @@ public class MainPageFragment extends AutoLazyFragment implements AdvRefreshList
     TextView mainGameSearch;
     private MultiTypeAdapter multiTypeAdapter;
     private BaseRefreshLayout baseRefreshLayout;
-    Items items = new Items();
+    private Items items = new Items();
 
     @Override
     protected void onCreateViewLazy(Bundle savedInstanceState) {
@@ -89,7 +89,7 @@ public class MainPageFragment extends AutoLazyFragment implements AdvRefreshList
         multiTypeAdapter.register(TjAdText.class, new TjAdTextViewProvider());
 //        multiTypeAdapter.register(TjOptionColumn.class, new TjOptionColumnViewProvider());
         multiTypeAdapter.register(TjColumnHead.class, new TjColumnHeadViewProvider(baseRefreshLayout));
-        multiTypeAdapter.register(TjMustPlay.class, new TjMustPlayViewProvider());
+        multiTypeAdapter.register(TjMustPlay.class, new TjMustPlayViewProvider(getActivity()));
         multiTypeAdapter.register(AdImage.class, new AdImageViewProvider());
         multiTypeAdapter.register(GameBean.class, new GameItemViewProvider());
         multiTypeAdapter.register(TjTestNewVp.class, new TjTestNewVpViewProvider());
@@ -104,7 +104,6 @@ public class MainPageFragment extends AutoLazyFragment implements AdvRefreshList
         baseRefreshLayout.refresh();
         MessageEvent messageEvent = EventBus.getDefault().getStickyEvent(MessageEvent.class);
         onMessageEvent(messageEvent);
-
     }
 
     /**
@@ -170,19 +169,19 @@ public class MainPageFragment extends AutoLazyFragment implements AdvRefreshList
                 && homePage1Data.getTexthome().getList().size() > 0) {
             allItems.add(new TjAdText(homePage1Data.getTexthome().getList()));
         }
-        //秒杀代金券、活动资讯等
-        boolean isReuqestLine = false;
         TjColumnHead tjColumnHead;
 
         //必玩游戏
         tjColumnHead = new TjColumnHead(TjColumnHead.TYPE_GAME_MUSTPLAYER);
         allItems.add(tjColumnHead);
-        String[] playNames = {"北凉悍刀行", "剑雨逍遥", "狼人杀", "魂之轨迹"};
-        int[] playImgs = {R.mipmap.about_us, R.mipmap.delete, R.mipmap.safe, R.mipmap.chongzhika};
-        allItems.add(new TjMustPlay(playNames, playImgs));
+        List<GameBean> gameBeans = new ArrayList<>();
+        gameBeans.add(new GameBean("6052", "http://static.520cai.com/upload/20171113/5a09072c617d5.png", "魂之轨迹", null));
+        gameBeans.add(new GameBean("6008", "http://static.520cai.com/upload/20170830/59a6360a5222b.png", "加勒比海盗:启航", null));
+        gameBeans.add(new GameBean("6021", "http://static.520cai.com/upload/20170831/59a7b586b716a.png", "来啊捕鱼", null));
+        gameBeans.add(new GameBean("6051", "http://static.520cai.com/upload/20171103/59fc10db193d3.png", "狼人杀", null));
+        allItems.add(new TjMustPlay(gameBeans));
 
         //新游推荐头
-        isReuqestLine = false;
         tjColumnHead = new TjColumnHead(TjColumnHead.TYPE_GAME_TJ);
         allItems.add(tjColumnHead);
         //新游推荐
@@ -198,11 +197,9 @@ public class MainPageFragment extends AutoLazyFragment implements AdvRefreshList
                 }
                 allItems.add(gameBean);
             }
-            isReuqestLine = true;
         }
 
         //手游风向标头(热门游戏)
-        isReuqestLine = false;
         tjColumnHead = new TjColumnHead(TjColumnHead.TYPE_GAME_FXB);
         allItems.add(tjColumnHead);
         //手游风向标(热门游戏)
@@ -218,7 +215,6 @@ public class MainPageFragment extends AutoLazyFragment implements AdvRefreshList
                 }
                 allItems.add(gameBean);
             }
-            isReuqestLine = true;
         }
         items.clear();
         baseRefreshLayout.resultLoadData(items, allItems, 1);
@@ -240,5 +236,4 @@ public class MainPageFragment extends AutoLazyFragment implements AdvRefreshList
         }
         super.onDestroyViewLazy();
     }
-
 }

@@ -6,23 +6,49 @@ package com.etsdk.app.huov7.model;
 
 public class H5GamesBean {
     private String gameName;
-    private String imgurl;
+    private int imgId;
+    private String weburl;
     private String introduce;
+    private String type;
+
+    public H5GamesBean(String gameName, int imgId, String weburl, String introduce, String type) {
+        this.gameName = gameName;
+        this.imgId = imgId;
+        this.weburl = weburl;
+        this.introduce = introduce;
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getGameName() {
         return gameName;
+    }
+
+    public String getWeburl() {
+        return weburl;
+    }
+
+    public void setWeburl(String weburl) {
+        this.weburl = weburl;
     }
 
     public void setGameName(String gameName) {
         this.gameName = gameName;
     }
 
-    public String getImgurl() {
-        return imgurl;
+    public int getImgId() {
+        return imgId;
     }
 
-    public void setImgurl(String imgurl) {
-        this.imgurl = imgurl;
+    public void setImgId(int imgId) {
+        this.imgId = imgId;
     }
 
     public String getIntroduce() {

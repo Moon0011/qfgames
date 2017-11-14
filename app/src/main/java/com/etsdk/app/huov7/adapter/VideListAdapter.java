@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.etsdk.app.huov7.R;
 import com.etsdk.app.huov7.model.H5GamesBean;
 
-
 import java.util.List;
 
 /**
@@ -51,15 +50,15 @@ public class VideListAdapter extends RecyclerView.Adapter<VideListAdapter.ViewHo
         if (holder == null) {
             return;
         }
-        holder.tvTitle.setText("传奇来了");
-        holder.tvType.setText("角色扮演");
-        holder.tvIntroduce.setText("正版授权，千人同屏热血激情PK打怪。");
+        holder.tvTitle.setText(mDatas.get(position).getGameName());
+        holder.tvType.setText(mDatas.get(position).getType());
+        holder.tvIntroduce.setText(mDatas.get(position).getIntroduce());
 //        Glide.with(mContext)
-//                .load(mDatas.get(position).getImage_url())
+//                .load(mDatas.get(position).getImgurl())
 //                .placeholder(R.mipmap.error_pic)
 //                .error(R.mipmap.error_pic)
 //                .into(holder.imgAnchor);
-        holder.imgAnchor.setImageResource(R.mipmap.chqi_coming_icon);
+        holder.imgAnchor.setImageResource(mDatas.get(position).getImgId());
         if (mOnRecyclerViewItemListener != null) {
             itemOnClick(holder, holder.btnopen);
         }
@@ -67,7 +66,7 @@ public class VideListAdapter extends RecyclerView.Adapter<VideListAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return 1;
+        return mDatas.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -86,13 +85,6 @@ public class VideListAdapter extends RecyclerView.Adapter<VideListAdapter.ViewHo
     }
 
     private void itemOnClick(final RecyclerView.ViewHolder holder, Button open) {
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int position = holder.getLayoutPosition();
-//                mOnRecyclerViewItemListener.onItemClickListener(holder.itemView, position);
-//            }
-//        });
         open.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

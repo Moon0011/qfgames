@@ -1,28 +1,20 @@
 package com.etsdk.app.huov7.model;
 
 
+import java.util.List;
+
 public class TjMustPlay {
-    public TjMustPlay(String[] playNames, int[] playImgs) {
-        this.playNames = playNames;
-        this.playImgs = playImgs;
+    public TjMustPlay(List<GameBean> gameBeans) {
+        this.gameBeans = gameBeans;
     }
 
-    private String[] playNames;
-    private int[] playImgs;
+    private List<GameBean> gameBeans;
 
-    public String[] getPlayNames() {
-        return playNames;
+    public List<GameBean> getGameBeans() {
+        return gameBeans;
     }
 
-    public void setPlayNames(String[] playNames) {
-        this.playNames = playNames;
-    }
-
-    public int[] getPlayImgs() {
-        return playImgs;
-    }
-
-    public void setPlayImgs(int[] playImgs) {
-        this.playImgs = playImgs;
+    public void setGameBeans(List<GameBean> gameBeans) {
+        this.gameBeans = gameBeans;
     }
 }
