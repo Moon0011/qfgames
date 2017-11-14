@@ -209,6 +209,12 @@ public class TjColumnHeadViewProvider
                     GiftCardListActivity.start(v.getContext(),"实物兑换专区",2);
                 }
             });
+        }else if(tjColumnHead.getType()==TjColumnHead.TYPE_GAME_MUSTPLAYER){
+            holder.tvTypeName.setText("必玩游戏");
+            holder.ivHint.setBackgroundResource(R.mipmap.remen);
+            holder.ivHint.setVisibility(View.VISIBLE);
+            holder.tvMore.setVisibility(View.GONE);
+            holder.ivMore.setVisibility(View.GONE);
         }
         if(requestBackGroundColor){
             holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(R.color.bg_gray));

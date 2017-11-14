@@ -18,6 +18,7 @@ public class TjColumnHead {
     public static final int TYPE_SCORE_GIFT_CARD=12;//积分商城礼品卡
     public static final int TYPE_SCORE_GOODS=13;//积分商城实物
     public static final int TYPE_GAME_WELFARE=14;//公益游戏
+    public static final int TYPE_GAME_MUSTPLAYER=15;//公益游戏
     private int type;
 
     public TjColumnHead(int type) {

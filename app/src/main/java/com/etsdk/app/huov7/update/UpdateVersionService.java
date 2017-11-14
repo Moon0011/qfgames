@@ -11,22 +11,34 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 
 import com.etsdk.app.huov7.R;
 import com.liang530.log.L;
 
+import java.io.File;
+
 public class UpdateVersionService extends Service {
     private String url;
-    /** 安卓系统下载类 **/
+    /**
+     * 安卓系统下载类
+     **/
     DownloadManager manager;
-    /** 接收下载完的广播 **/
+    /**
+     * 接收下载完的广播
+     **/
     DownloadCompleteReceiver receiver;
-    /** 初始化下载器 **/
+
+    /**
+     * 初始化下载器
+     **/
     private void initDownManager() {
         manager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         receiver = new DownloadCompleteReceiver();
@@ -39,8 +51,8 @@ public class UpdateVersionService extends Service {
         // 显示下载界面
         down.setVisibleInDownloadsUi(true);
         // 设置下载路径和文件名
-        down.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, getString(R.string.app_name)+".apk");
-        down.setDescription(getString(R.string.app_name)+"新版本下载");
+        down.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, getString(R.string.app_name) + ".apk");
+        down.setDescription(getString(R.string.app_name) + "新版本下载");
         // 下载时，通知栏显示途中
         down.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         down.setMimeType("application/vnd.android.package-archive");
@@ -70,9 +82,9 @@ public class UpdateVersionService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         url = intent.getStringExtra("url");
-        L.d("hongliang","下载的url="+url);
-        if(!TextUtils.isEmpty(url)&&
-                (url.startsWith("http")||url.startsWith("https"))){
+        L.d("hongliang", "下载的url=" + url);
+        if (!TextUtils.isEmpty(url) &&
+                (url.startsWith("http") || url.startsWith("https"))) {
             // 调用下载
             initDownManager();
         }
@@ -101,22 +113,51 @@ public class UpdateVersionService extends Service {
                 //停止服务并关闭广播
                 UpdateVersionService.this.stopSelf();
                 //自动安装apk
-                installAPK(context,manager.getUriForDownloadedFile(downId));
+                installAPK(context, manager.getUriForDownloadedFile(downId), downId);
 
             }
         }
+
         /**
          * 安装apk文件
          */
-        private void installAPK(Context context,Uri apk) {
-            if(apk!=null){
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);//动作
-                intent.addCategory(Intent.CATEGORY_DEFAULT);//类型
-                intent.setDataAndType(apk, "application/vnd.android.package-archive");
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+        private void installAPK(Context context, Uri apk, long downId) {
+            if (apk != null) {
+//                Intent intent = new Intent();
+//                intent.setAction(Intent.ACTION_VIEW);//动作
+//                intent.addCategory(Intent.CATEGORY_DEFAULT);//类型
+//                intent.setDataAndType(apk, "application/vnd.android.package-archive");
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent);
+
+                Cursor c = manager.query(new DownloadManager.Query().setFilterById(downId));
+                if (c != null) {
+                    c.moveToFirst();
+                    int fileNameIdx = c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME);
+                    String fileName = c.getString(fileNameIdx);
+                    File file = new File(fileName);
+                    install(context, file);
+                    c.close();
+                }
             }
         }
+    }
+
+    private void install(Context context, File file) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        // 由于没有在Activity环境下启动Activity,设置下面的标签
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (Build.VERSION.SDK_INT >= 24) { //判读版本是否在7.0以上
+            //参数1 上下文, 参数2 Provider主机地址 和配置文件中保持一致   参数3  共享的文件
+            Uri apkUri =
+                    FileProvider.getUriForFile(context, "com.qf.pdl.installapk", file);
+            //添加这一句表示对目标应用临时授权该Uri所代表的文件
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+        } else {
+            intent.setDataAndType(Uri.fromFile(file),
+                    "application/vnd.android.package-archive");
+        }
+        context.startActivity(intent);
     }
 }
