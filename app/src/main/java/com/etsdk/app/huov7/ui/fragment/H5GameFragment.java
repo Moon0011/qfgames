@@ -8,7 +8,7 @@ import com.etsdk.app.huov7.R;
 import com.etsdk.app.huov7.adapter.VideListAdapter;
 import com.etsdk.app.huov7.base.AutoLazyFragment;
 import com.etsdk.app.huov7.model.H5GamesBean;
-import com.etsdk.app.huov7.ui.WebH5Activity;
+import com.etsdk.app.huov7.ui.WebActivity;
 import com.etsdk.app.huov7.view.SlideShowView;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
@@ -56,7 +56,7 @@ public class H5GameFragment extends AutoLazyFragment implements VideListAdapter.
 
     @Override
     public void onItemClickListener(View view, int position) {
-        Intent intent = new Intent(getActivity(), WebH5Activity.class);
+        Intent intent = new Intent(getActivity(), WebActivity.class);
         Bundle b = new Bundle();
         b.putString("url", h5GamesBeans.get(position).getWeburl());
         intent.putExtras(b);

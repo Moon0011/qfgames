@@ -237,3 +237,9 @@ public static final int *;
   **[] $VALUES;
   public *;
 }
+
+#agentweb
+-keep class com.just.library.** {
+    *;
+}
+-dontwarn com.just.library.**

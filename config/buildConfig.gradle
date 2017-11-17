@@ -52,10 +52,10 @@ ext {
         //签名信息
         signingConfigs {
             debug {
-                storeFile file("key/huoapp_key.jks")
-                storePassword "huoapp"
-                keyAlias "huoshu"
-                keyPassword "huoapp"
+                storeFile file("key/qfgame_key.jks")
+                storePassword "001122"
+                keyAlias "qfgame"
+                keyPassword "001122"
                 v2SigningEnabled false
             }
             release {

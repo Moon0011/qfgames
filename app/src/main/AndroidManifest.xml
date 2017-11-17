@@ -506,6 +506,8 @@
             android:configChanges="screenSize|orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name="com.etsdk.app.huov7.ui.WebH5Activity" />
+        <activity
+            android:name="com.etsdk.app.huov7.ui.WebActivity"
+            android:launchMode="singleTop" />
     </application>
 </manifest>

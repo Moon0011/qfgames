@@ -37,4 +37,15 @@
     <style name="MainActivityStyle" parent="Theme.AppCompat.Translucent">
         <item name="android:windowIsTranslucent">false</item>
     </style>
+
+    <style name="toolBar">
+        <item name="colorControlNormal">#ffffff</item>
+        <item name="android:homeAsUpIndicator">@mipmap/cha</item>
+        <item name="android:titleTextStyle">@style/titlestyle</item>
+
+    </style>
+
+    <style name="titlestyle">
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

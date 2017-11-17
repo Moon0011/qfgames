@@ -86,7 +86,8 @@ public class TjColumnHeadViewProvider
             holder.tvTypeName.setText("热门游戏");
             holder.ivHint.setBackgroundResource(R.mipmap.remen);
             holder.tvMore.setText("更多");
-            holder.ivMore.setVisibility(View.VISIBLE);//跳转至游戏热门分类
+            holder.tvMore.setVisibility(View.GONE);
+            holder.ivMore.setVisibility(View.GONE);//跳转至游戏热门分类
             holder.tvMore.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

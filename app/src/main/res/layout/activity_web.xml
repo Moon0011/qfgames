@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:titleTextColor="@android:color/white"
+        android:visibility="gone"
+        app:theme="@style/toolBar"
+        app:titleTextColor="@android:color/white">
+
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/bg_blue">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="H5游戏"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_title" />
+
+        <ImageView
+            android:id="@+id/iv_gotoMsg"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/common_margin"
+            android:padding="5dp"
+            android:src="@mipmap/syxiaoxi_nomal"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

@@ -13,13 +13,14 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/img_play01"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@mipmap/error_pic" />
 
         <TextView
@@ -32,8 +33,8 @@
             android:textSize="15sp" />
 
         <RelativeLayout
-            android:layout_width="52dp"
-            android:layout_height="25dp"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
 
@@ -61,14 +62,14 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/img_play02"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@mipmap/error_pic" />
 
         <TextView
@@ -81,8 +82,8 @@
             android:textSize="15sp" />
 
         <RelativeLayout
-            android:layout_width="52dp"
-            android:layout_height="25dp"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
 
@@ -111,14 +112,14 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/img_play03"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@mipmap/error_pic" />
 
         <TextView
@@ -131,8 +132,8 @@
             android:textSize="15sp" />
 
         <RelativeLayout
-            android:layout_width="52dp"
-            android:layout_height="25dp"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
 
@@ -160,14 +161,14 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/img_play04"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@mipmap/error_pic" />
 
         <TextView
@@ -180,8 +181,8 @@
             android:textSize="15sp" />
 
         <RelativeLayout
-            android:layout_width="52dp"
-            android:layout_height="25dp"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
 
