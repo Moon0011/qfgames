@@ -30,10 +30,13 @@
             android:visibility="gone" />
     </RelativeLayout>
 
-    <com.etsdk.app.huov7.view.SlideShowView
+    <com.youth.banner.Banner
         android:id="@+id/slideshowview"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="150dp"
+        app:banner_default_image="@mipmap/error_pic"
+        app:image_scale_type="fit_xy"
+        app:indicator_width="0dp"/>
 
     <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
         android:id="@+id/recyclerView"

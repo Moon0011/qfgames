@@ -42,8 +42,6 @@ ext {
                             newOutfileDir.mkdirs();
                             //apk位置 outputs/渠道名/xxx.apk
                             output.outputFile = new File(newOutfileDir, fileName);
-                            String channelName="${variant.productFlavors[0].name}";
-
                         }
                     }
                 }

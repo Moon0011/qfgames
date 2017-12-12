@@ -10,9 +10,6 @@
     <string name="default_login_hint">登录/注册</string>
     <string name="update_phone_show">当前已绑定手机账户：%s</string>
     <string name="update_email_show">当前已绑定邮箱：%s</string>
-    <string name="test_large_text">游戏介绍游戏介绍游游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游
-        戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍游戏介绍</string>
-    <string name="smart_install_accessibility_service_description">辅助功能安装服务</string>
     <string name="pay_desc">注：充值成功以后，可到我的游戏中查询游戏币余额。
         \n网上银行充值说明：
         \n1、您必须开通了网上银行业务；

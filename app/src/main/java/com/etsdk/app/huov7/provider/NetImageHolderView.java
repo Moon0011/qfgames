@@ -1,13 +1,9 @@
 package com.etsdk.app.huov7.provider;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.etsdk.app.huov7.R;
 import com.etsdk.app.huov7.model.AdImage;
 import com.liang530.utils.GlideDisplay;
