@@ -58,7 +58,7 @@ public class NewsListAdapter extends RecyclerView.Adapter implements IDataAdapte
             ((ViewHolder) holder).tvNewsType.setVisibility(View.GONE);
         }
         ((ViewHolder)holder).tvNewsTime.setText(news.getPudate());
-        int placehoder = R.mipmap.icon_load;
+        int placehoder = R.mipmap.error_pic;
         if(BuildConfig.projectCode == 74){
             placehoder = R.mipmap.news_default;
         }

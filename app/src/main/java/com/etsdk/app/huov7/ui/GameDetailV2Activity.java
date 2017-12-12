@@ -191,7 +191,7 @@ public class GameDetailV2Activity extends ImmerseActivity {
     private void setupData(GameBean gameBean) {
         this.gameBean = gameBean;
         appBarLayout.setExpanded(true);
-        GlideDisplay.display(ivGameImg, gameBean.getIcon(), R.mipmap.icon_load);
+        GlideDisplay.display(ivGameImg, gameBean.getIcon(), R.mipmap.error_pic);
         tvGameName.setText(gameBean.getGamename());
         tvTitleName.setText(gameBean.getGamename());
         tvGameSize.setText(gameBean.getSize());

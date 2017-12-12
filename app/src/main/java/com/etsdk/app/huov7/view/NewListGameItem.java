@@ -125,7 +125,7 @@ public class NewListGameItem extends BaseDownView {
         TasksManager.getImpl().addDownloadListenerById(gameBean.getGameid(), this);
         tvGameName.setText(gameBean.getGamename());
         tvOneword.setText(gameBean.getOneword());
-        GlideDisplay.display(ivGameImg, gameBean.getIcon(), R.mipmap.icon_load);
+        GlideDisplay.display(ivGameImg, gameBean.getIcon(), R.mipmap.error_pic);
 
         gameTagView.setGameType(gameBean.getType());
 

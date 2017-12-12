@@ -60,7 +60,7 @@
                             android:layout_height="65dp"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
-                            android:src="@mipmap/icon_load"
+                            android:src="@mipmap/error_pic"
                             app:riv_corner_radius="16dp" />
                     </RelativeLayout>
 
