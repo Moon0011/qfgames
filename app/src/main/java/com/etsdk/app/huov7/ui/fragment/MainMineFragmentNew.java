@@ -2,9 +2,7 @@ package com.etsdk.app.huov7.ui.fragment;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -51,7 +49,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -162,6 +159,12 @@ public class MainMineFragmentNew extends AutoLazyFragment {
     @Override
     protected void onFragmentStartLazy() {
         super.onFragmentStartLazy();
+//        updateData();
+    }
+
+    @Override
+    protected void onResumeLazy() {
+        super.onResumeLazy();
         updateData();
     }
 
